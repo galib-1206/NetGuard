@@ -37,21 +37,29 @@ https://github.com/galib-1206/NetGuard.git
 2. From the cloned folder, use docker compose to launch the app:
 
 ```
-docker compose up
+sudo docker-compose up -d
 ```
 
 3. To shut down the app, use docker compose again:
 
 ```
-docker compose down
+sudo docker-compose down
 ```
-
+4. For Running NextJS Frontend
+```
+npm run dev
+```
 ## How to use
 
 1. Navigate to: http://x.x.x.x:3001/d/app/netprobe where x.x.x.x = IP of the probe machine running Docker.
 
 2. Default user / pass is 'admin/admin'. Login to Grafana and set a custom password.
 
+## **Important
+
+1. By Docker Composing up, Network Performance Monitoring will be realtime dashboard.
+2. But Frontend & Anomaly Detector Backend is not docker composed. Just run the frontend locally.And from there Backend Python script will be run.
+ 
 ## How to customize
 
 ### Enable Speedtest
