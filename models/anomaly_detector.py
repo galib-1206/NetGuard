@@ -20,12 +20,12 @@ plt.rcParams['axes.labelsize'] = 14
 plt.rcParams['xtick.labelsize'] = 12
 plt.rcParams['ytick.labelsize'] = 12
 
-print("pandas : {0}".format(pd.__version__))
-print("numpy : {0}".format(np.__version__))
-print("matplotlib : {0}".format(matplotlib.__version__))
-print("seaborn : {0}".format(sns.__version__))
-print("sklearn : {0}".format(sklearn.__version__)) 
-print("imblearn : {0}".format(imblearn.__version__)) 
+# print("pandas : {0}".format(pd.__version__))
+# print("numpy : {0}".format(np.__version__))
+# print("matplotlib : {0}".format(matplotlib.__version__))
+# print("seaborn : {0}".format(sns.__version__))
+# print("sklearn : {0}".format(sklearn.__version__)) 
+# print("imblearn : {0}".format(imblearn.__version__)) 
 
 # Dataset field names
 datacols = ["duration", "protocol_type", "service", "src_bytes",
@@ -39,7 +39,7 @@ dfkdd_train = pd.read_table("KDDTrain.csv", sep=",")
 dfkdd_test = pd.read_table("KDDTest.csv", sep=",")
 # dfkdd_test = dfkdd_test.iloc[:,:-1]  
 
-real_data = pd.read_csv('captured_packets.csv')
+real_data = pd.read_csv('/home/bs00794/Documents/My_Projects/netprobe_lite/models/captured_packets.csv')
 
 real_data = real_data[datacols[:-1]]       
 dfkdd_test = dfkdd_test[datacols]
@@ -239,7 +239,6 @@ enc = OneHotEncoder(handle_unknown='ignore')
 Xresdf = pretrain 
 newtest = pretest
 
-# selected_features = ['feature1', 'feature2', 'feature3']  # Placeholder for selected features
 
 Xresdfnew = Xresdf[selected_features]
 Xresdfnum = Xresdfnew.drop(['service'], axis=1)
@@ -310,11 +309,19 @@ for i, v in models:
     accuracy = metrics.accuracy_score(Y_train, v.predict(X_train))
     confusion_matrix = metrics.confusion_matrix(Y_train, v.predict(X_train))
     classification = metrics.classification_report(Y_train, v.predict(X_train))
-    print(f'============================== {grpclass} {i} Model Evaluation ==============================\n')
-    print(f"Cross Validation Mean Score:\n {scores.mean()}")
-    print(f"Model Accuracy:\n {accuracy}")
-    print(f"Confusion matrix:\n {confusion_matrix}")
-    print(f"Classification report:\n {classification}\n")
+    
+    # print(f'============================== {grpclass} {i} Model Evaluation ==============================\n')
+    # print(f"Cross Validation Mean Score:\n {scores.mean()}")
+    # print(f"Model Accuracy:\n {accuracy}")
+    # print(f"Confusion matrix:\n {confusion_matrix}")
+    # print(f"Classification report:\n {classification}\n")
+
+
+
+
+
+
+
 
 
 import joblib
@@ -352,8 +359,7 @@ for i, v in models:
 for i, v in models:
     res = v.predict(X_real)
 
-print(res)
-
+print("---JSON-RESULT---")
 
 import json
 

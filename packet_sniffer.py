@@ -243,7 +243,7 @@ def capture_packets():
     print("Data saved to captured_packets.csv")
 
      # Define destination directory
-    destination_dir = "/home/bs00794/Documents/My Projects/netprobe_lite/models/captured_packets.csv"
+    destination_dir = "/home/bs00794/Documents/My_Projects/netprobe_lite/models/captured_packets.csv"
     
     # Move the CSV file
     shutil.move(csv_path, destination_dir)
